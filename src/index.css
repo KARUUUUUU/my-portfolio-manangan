@@ -127,8 +127,8 @@ h1, h2, h3 {
 }
 
 @theme {
-  /* This defines a custom 'brand-red' you can use as text-brand-red or bg-brand-red */
-  --color-brand-red: #dc2626; 
+  /* This defines a custom 'brand-purple' you can use as text-brand-purple or bg-brand-purple */
+  --color-brand-purple: #8b5cf6; 
   --color-dark-bg: #09090b;
 }
 
@@ -152,12 +152,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #dc2626;
+  background: #8b5cf6;
 }
 
 /* Highlighting text color */
 ::selection {
-  background-color: #dc2626;
+  background-color: #8b5cf6;
   color: white;
 }
 
@@ -179,4 +179,22 @@ button {
 :focus-visible {
   outline: 2px solid #dc2626;
   outline-offset: 2px;
+}
+
+/* Add this to the bottom of src/index.css */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180px);
 }

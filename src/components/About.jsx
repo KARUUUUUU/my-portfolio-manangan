@@ -1,30 +1,36 @@
 // src/components/About.jsx
 function About() {
   const services = [
-    { id: 1, title: "Website Development", icon: "🌐" },
-    { id: 2, title: "App Development", icon: "📱" },
-    { id: 3, title: "Website Hosting", icon: "☁️" },
-  ];
-
-  const stats = [
-    { label: "Completed Projects", value: "120 +" },
-    { label: "Client satisfaction", value: "95 %" },
-    { label: "Years of experience", value: "10 +" },
+    { id: 1, title: "Frontend Development", icon: "🌐" },
+    { id: 2, title: "Automated Testing", icon: "📱" },
+    { id: 3, title: "UI/UX Design", icon: "🎨" },
   ];
 
   return (
-    <section className="max-w-[1440px] mx-auto px-6 py-20 md:px-12 grid md:grid-cols-2 gap-16 items-start">
+    // CRITICAL FIX: Added id="about" here
+    <section id="about" className="relative max-w-[1440px] mx-auto px-6 py-32 md:px-12 grid md:grid-cols-2 gap-16 items-start overflow-hidden">
       
+      {/* Decorative Background Glow (Optional - adds depth) */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-[#ff0a54]/5 blur-[120px] -z-10"></div>
+
       {/* Left Side: Services List */}
-      <div className="space-y-8 border-l border-zinc-800 pl-6">
+      <div className="space-y-10 border-l-2 border-zinc-900 pl-8 relative">
+        {/* Vertical Accent Line - Swapped purple for red */}
+        <div className="absolute left-[-2px] top-0 w-[2px] h-20 bg-gradient-to-b from-[#ff0a54] to-transparent"></div>
+        
         {services.map((service) => (
           <div key={service.id} className="group flex items-center gap-6 cursor-default">
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors text-xl">
+            {/* Service Icon Border - Swapped purple for red/50 */}
+            <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-zinc-900/50 border border-zinc-800 group-hover:border-[#ff0a54]/50 group-hover:bg-zinc-900 transition-all duration-500 text-2xl shadow-xl">
               {service.icon}
             </div>
-            <h3 className="text-xl font-semibold text-zinc-300 group-hover:text-white transition-colors duration-300">
-              {service.title}
-            </h3>
+            <div>
+              <h3 className="text-xl font-black tracking-tight text-zinc-500 group-hover:text-white transition-colors duration-300">
+                {service.title}
+              </h3>
+              {/* Animated Underline - Swapped purple for red */}
+              <div className="w-0 group-hover:w-full h-[1px] bg-gradient-to-r from-[#ff0a54] to-transparent transition-all duration-500 mt-1"></div>
+            </div>
           </div>
         ))}
       </div>
@@ -32,24 +38,33 @@ function About() {
       {/* Right Side: Bio and Stats */}
       <div className="space-y-12">
         <div className="space-y-6">
-          <h2 className="text-4xl font-bold text-white tracking-tight">About me</h2>
-          <p className="text-zinc-400 leading-relaxed text-lg max-w-xl">
-            I started my software journey from photography. Through that, I learned to 
-            love the process of creating from scratch. Since then, this has led me to 
-            software development as it fulfills my love for learning and building things.
-          </p>
+          <h2 className="text-5xl font-black text-white tracking-tighter">
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff0a54] to-[#ff7b00]">Me</span>
+          </h2>
+          
+          <div className="space-y-6 text-zinc-400 leading-relaxed text-lg max-w-xl">
+            <p>
+              A <span className="text-white font-bold italic">4th-year Computer Science student</span> at 
+              <span className="text-white font-semibold"> CIIT College of Arts and Technology</span>, 
+              I am a versatile Front-end Developer and QA Specialist dedicated to building 
+              high-performance, user-centric digital solutions. 
+            </p>
+            
+            <p>
+              I specialize in crafting seamless interfaces with <span className="text-[#ff0a54] font-bold">React</span> and 
+              ensuring rock-solid reliability through automated testing with <span className="text-[#ff7b00] font-bold">Selenium</span>. 
+              With experience as a Product Owner and a sharp eye for design in 
+              <span className="text-white font-medium underline decoration-[#ff0a54]/30"> Figma</span>, I ensure technical excellence 
+              aligns perfectly with product strategy.
+            </p>
+          </div>
         </div>
 
-        {/* Statistics Grid */}
-        <div className="grid grid-cols-3 gap-8 pt-8 border-t border-zinc-900">
-          {stats.map((stat) => (
-            <div key={stat.label} className="space-y-2">
-              <p className="text-3xl md:text-4xl font-black text-white">{stat.value}</p>
-              <p className="text-xs md:text-sm uppercase tracking-widest text-zinc-500 font-bold leading-tight">
-                {stat.label}
-              </p>
+        {/* Action Call for the Bio section */}
+        <div className="pt-4">
+            <div className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 border-b border-zinc-800 pb-2">
+              Currently open to Internship 2026
             </div>
-          ))}
         </div>
       </div>
     </section>
