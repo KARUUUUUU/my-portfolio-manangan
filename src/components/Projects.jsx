@@ -30,21 +30,21 @@ function Projects() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {myProjects.map((project) => (
-          <div key={project.id} className="group bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl hover:border-red-600/50 transition-all duration-300">
+          <div key={project.id} className="group bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl hover:border-red-600/50 transition-all duration-300 hover:shadow-lg hover:shadow-red-600/10">
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tags.map(tag => (
-                <span key={tag} className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">
+                <span key={tag} className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold bg-zinc-800/50 px-2 py-1 rounded">
                   {tag}
                 </span>
               ))}
             </div>
-            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors">
+            <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors duration-300">
               {project.title}
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed mb-6">
               {project.description}
             </p>
-            <a href="#" className="text-white text-xs font-bold uppercase tracking-widest border-b border-red-600 pb-1 hover:text-red-500 transition-colors">
+            <a href="#" className="text-white text-xs font-bold uppercase tracking-widest border-b border-red-600 pb-1 hover:text-red-500 transition-colors duration-300">
               View Project →
             </a>
           </div>

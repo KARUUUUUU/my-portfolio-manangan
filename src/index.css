@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -52,11 +54,12 @@
 
 body {
   margin: 0;
+  font-family: var(--sans);
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   text-align: center;
   border-inline: 1px solid var(--border);
@@ -64,6 +67,7 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background-color: #09090b;
 }
 
 h1,
@@ -108,4 +112,71 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+@import "tailwindcss";
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Making headings pop */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+@theme {
+  /* This defines a custom 'brand-red' you can use as text-brand-red or bg-brand-red */
+  --color-brand-red: #dc2626; 
+  --color-dark-bg: #09090b;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-dark-bg);
+}
+
+/* Custom Scrollbar for that 'Pro' look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+/* Highlighting text color */
+::selection {
+  background-color: #dc2626;
+  color: white;
+}
+
+/* Additional enhancements for better visual consistency */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Improved focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
 }

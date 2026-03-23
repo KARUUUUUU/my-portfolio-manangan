@@ -1,78 +1,79 @@
 // src/components/Hero.jsx
-import ProfileImg from '../assets/profile_image.png'; // Assuming you named it this
+import ProfileImg from '../assets/profile_image.png';
 
 function Hero() {
   const techStack = ['HTML5', 'CSS', 'Javascript', 'Node.js', 'React', 'Git', 'Github'];
 
   return (
-    <section className="relative px-6 py-12 md:px-12 md:py-16 xl:py-24">
-      {/* 1. The Header/Navbar (Jensen Omega) */}
-      <nav className="max-w-[1440px] mx-auto flex items-center justify-between py-6 mb-12 border-b border-zinc-800">
-        <h1 className="text-2xl font-bold tracking-tight text-white">
-          Jensen Omega
-        </h1>
-        
-        {/* Desktop Menu - Hidden on Mobile */}
-        <div className="hidden md:flex items-center gap-10 text-zinc-400 text-sm font-medium">
-          {['Home', 'About', 'Projects', 'Contacts'].map(item => (
-            <a key={item} href="#" className="hover:text-white transition-colors">
-              {item}
-            </a>
-          ))}
+    <section id="home" className="relative w-full min-h-screen bg-zinc-950 px-4 md:px-8 py-24 flex flex-col justify-center">
+      
+      {/* Navbar - Fixed to top */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-900 px-6 md:px-10 py-4 md:py-6">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <h1 className="text-xl font-bold tracking-tighter">Jensen Omega</h1>
+          <div className="hidden md:flex gap-8 md:gap-10 text-sm font-medium text-zinc-400">
+            {['Home', 'About', 'Projects', 'Contacts'].map(item => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-white transition-colors duration-300">
+                {item}
+              </a>
+            ))}
+          </div>
+          <div className="md:hidden">
+            <button className="text-zinc-400 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
-        
-        {/* Mobile Menu Icon (Placeholder, visible only on small screens) */}
-        <button className="md:hidden text-zinc-400 p-2 border border-zinc-800 rounded">
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
       </nav>
 
-      {/* 2. The Hero Content Block */}
-      <div className="max-w-[1440px] mx-auto grid md:grid-cols-[1fr,minmax(300px,450px)] items-center gap-x-16 gap-y-12">
+      {/* Main Container: Split Grid */}
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center pt-16 md:pt-24">
         
-        {/* Left Column: Text & Buttons */}
-        <div className="flex flex-col items-start space-y-4 md:space-y-6">
-          <p className="text-zinc-500 font-medium">Hello.</p>
-          <p className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-200">
-            I'm <span className="border-b-2 border-zinc-200 pb-1">Jensen</span>
-          </p>
-          <h2 className="text-5xl md:text-6xl font-extrabold tracking-tighter text-white">
-            Software Developer
+        {/* Left Side: Text */}
+        <div className="order-2 md:order-1 flex flex-col items-start">
+          <p className="text-zinc-500 mb-2 text-sm md:text-base">Hello, I'm</p>
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            <span className="border-b-4 border-red-600">Jensen</span>
           </h2>
+          <h3 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6 md:mb-8">
+            Software Developer
+          </h3>
           
-          <div className="flex gap-4 pt-6">
-            <button className="px-8 py-3 bg-red-600 hover:bg-red-500 rounded-md font-semibold text-white transition-all text-sm md:text-base">
+          <p className="text-zinc-400 mb-8 max-w-md leading-relaxed">
+            I build digital experiences that are fast, accessible, and visually appealing.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button className="px-6 py-3 bg-red-600 hover:bg-red-500 text-white rounded font-bold transition-all duration-300 transform hover:-translate-y-1">
               Got a project?
             </button>
-            <button className="px-8 py-3 border border-zinc-700 hover:border-zinc-500 rounded-md font-semibold text-zinc-300 transition-all text-sm md:text-base">
+            <button className="px-6 py-3 border border-zinc-700 hover:bg-zinc-800 text-white rounded font-bold transition-all duration-300">
               My resume
             </button>
           </div>
         </div>
 
-        {/* Right Column: The Portrait and Accent Circles */}
-        <div className="relative aspect-square flex items-center justify-center p-6 bg-zinc-900 rounded-3xl group">
-          
-          {/* Accent red circles in background (using group-hover for a subtle animation) */}
-          <div className="absolute inset-0 rounded-3xl border border-red-900 scale-100 group-hover:scale-110 transition-transform duration-500 opacity-20"></div>
-          <div className="absolute inset-0 rounded-3xl border border-red-900 scale-90 group-hover:scale-105 transition-transform duration-500 delay-75 opacity-20"></div>
-          
-          {/* Main Image */}
-          <img 
-            src={ProfileImg} 
-            alt="Jensen Omega Portrait" 
-            className="w-full h-full object-cover rounded-2xl z-10"
-          />
+        {/* Right Side: Image with size constraints */}
+        <div className="order-1 md:order-2 flex justify-center md:justify-end">
+          <div className="relative w-full max-w-[350px] md:max-w-[400px] aspect-square bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
+            <img 
+              src={ProfileImg} 
+              alt="Profile" 
+              className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+            />
+            {/* Red accent circles */}
+            <div className="absolute inset-0 border-[20px] border-red-600/10 rounded-full scale-110 -z-10 blur-xl"></div>
+          </div>
         </div>
       </div>
 
-      {/* 3. The Tech Stack/Skills list (Lower section) */}
-      <div className="max-w-[1440px] mx-auto mt-24 pt-10 border-t border-zinc-800">
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:flex md:flex-wrap md:justify-center gap-6 md:gap-x-12 md:gap-y-6 text-sm text-zinc-600 font-medium tracking-wide uppercase">
+      {/* Skills Footer */}
+      <div className="max-w-7xl mx-auto w-full mt-16 md:mt-20 pt-10 border-t border-zinc-900">
+        <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-10 opacity-70">
           {techStack.map(skill => (
-            <span key={skill} className="px-3 py-1 bg-zinc-900 md:bg-transparent rounded-md flex items-center justify-center">
+            <span key={skill} className="text-xs md:text-sm font-bold tracking-widest uppercase text-zinc-400 hover:text-white transition-colors duration-300">
               {skill}
             </span>
           ))}

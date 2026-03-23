@@ -22,7 +22,7 @@ function About() {
             <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 group-hover:border-red-600 transition-colors text-xl">
               {service.icon}
             </div>
-            <h3 className="text-xl font-semibold text-zinc-300 group-hover:text-white transition-colors">
+            <h3 className="text-xl font-semibold text-zinc-300 group-hover:text-white transition-colors duration-300">
               {service.title}
             </h3>
           </div>

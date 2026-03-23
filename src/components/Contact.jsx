@@ -8,9 +8,9 @@ function Contact() {
 
       <div className="flex gap-6">
         {/* Replace '#' with your actual social links */}
-        <a href="https://github.com/karlmanangan" target="_blank" className="text-zinc-400 hover:text-white transition-colors font-medium">GitHub</a>
-        <a href="https://instagram.com/Kairunaught" target="_blank" className="text-zinc-400 hover:text-white transition-colors font-medium">Instagram</a>
-        <a href="mailto:your-email@example.com" className="text-zinc-400 hover:text-white transition-colors font-medium">Email</a>
+        <a href="https://github.com/karlmanangan" target="_blank" className="text-zinc-400 hover:text-white transition-colors font-medium hover:scale-110 duration-300">GitHub</a>
+        <a href="https://instagram.com/Kairunaught" target="_blank" className="text-zinc-400 hover:text-white transition-colors font-medium hover:scale-110 duration-300">Instagram</a>
+        <a href="mailto:your-email@example.com" className="text-zinc-400 hover:text-white transition-colors font-medium hover:scale-110 duration-300">Email</a>
       </div>
 
       <p className="text-zinc-600 text-xs tracking-widest uppercase">
