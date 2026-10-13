@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-zinc-950 text-zinc-100 antialiased selection:bg-purple-600 selection:text-white">
+      <div className="min-h-screen antialiased">
         <Routes>
           {/* Main Portfolio Route */}
           <Route path="/" element={
