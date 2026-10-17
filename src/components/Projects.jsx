@@ -2,10 +2,10 @@ function Projects() {
   const myProjects = [
     {
       id: '01',
-      title: 'Extra Hours',
-      description: 'A team effort cafe-based retail website built with React, and MongoDB.',
-      tags: ['React', 'MongoDB'],
-      link: 'https://github.com/KARUUUUUU/Finals_Website-register-popup-main',
+      title: 'Hydro-Scout Wireframe Prototype',
+      description: 'A Figma wireframe prototype exploring the layout and user flow of Hydro-Scout.',
+      tags: ['Figma', 'Wireframing', 'UI/UX'],
+      link: 'https://www.figma.com/proto/rbhEArgc9AMs52ZR3JM22l/Hydro-Scout-Prototype?node-id=10-2&p=f&t=GxesLKQ0CoQ5KVc3-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=10%3A2',
     },
     {
       id: '02',
