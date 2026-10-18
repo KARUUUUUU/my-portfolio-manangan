@@ -4,7 +4,7 @@ function Projects() {
       id: '01',
       title: 'Hydro-Scout Wireframe Prototype',
       description: 'A Figma wireframe prototype exploring the layout and user flow of Hydro-Scout.',
-      tags: ['Figma', 'Wireframing', 'UI/UX'],
+      tags: ['Figma', 'Wireframing', 'UI/UX', 'Hivemind'],
       link: 'https://www.figma.com/proto/rbhEArgc9AMs52ZR3JM22l/Hydro-Scout-Prototype?node-id=10-2&p=f&t=GxesLKQ0CoQ5KVc3-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=10%3A2',
     },
     {
@@ -13,7 +13,7 @@ function Projects() {
       icon: 'station',
       description:
         'A team-built centralized GIS with spatial decision support for optimizing firefighter response time through hydrant status monitoring and Haversine-based water resource mapping.',
-      tags: ['Thesis', 'React', 'QA', 'Firebase', 'Cloudinary'],
+      tags: ['Thesis', 'React', 'QA', 'Firebase', 'Cloudinary', 'Hivemind'],
       link: 'https://hivemind-hydro-scout.vercel.app/',
     },
     {
@@ -21,7 +21,7 @@ function Projects() {
       title: 'Petshoppe',
       description: 'A fullstack e-commerce website for a pet shop, developed by Hivemind, the same team behind Hydro-Scout.',
       tags: ['Fullstack', 'E-commerce', 'Hivemind'],
-      link: 'https://petshoppe-gamma.vercel.app/',
+      link: 'https://petshoppee.vercel.app/',
     },
     {
       id: '04',
