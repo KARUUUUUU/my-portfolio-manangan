@@ -56,7 +56,9 @@ function Archive() {
         <button onClick={() => navigate('/')}>
           <span aria-hidden="true">←</span> Back to Portfolio
         </button>
-        <div className="archive-nav-mark" aria-hidden="true">KM</div>
+        <div className="archive-nav-mark">
+          <img src="/Kairunaughtrans.png" alt="Kairunaught" />
+        </div>
         <span>Project Archive / Index</span>
       </nav>
 

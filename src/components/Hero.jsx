@@ -12,14 +12,13 @@ function Hero() {
   return (
     <section id="home" className="portfolio-hero">
       <nav className="hero-nav" aria-label="Primary navigation">
+        <div className="hero-logo">
+          <img src="/Kairunaughtrans.png" alt="Kairunaught" />
+        </div>
+
         <div>
           <span>Based in</span>
           <strong>Caloocan City, PH</strong>
-        </div>
-
-        <div className="hero-clock">
-          <span>Current focus</span>
-          <strong>Thesis</strong>
         </div>
 
         <div className="hero-menu">

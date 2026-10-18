@@ -84,7 +84,7 @@ img {
   inset: 0 0 auto 0;
   z-index: 40;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1rem;
   padding: 0.85rem 1.5rem;
@@ -123,9 +123,24 @@ img {
   font-weight: 900;
 }
 
-.hero-clock {
-  text-align: center;
-  justify-self: center;
+.hero-logo {
+  justify-self: start;
+  margin-right: 0.5rem;
+  position: relative;
+  width: 4rem;
+  height: 3.25rem;
+}
+
+.hero-logo img {
+  display: block;
+  max-width: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 3.75rem;
+  object-fit: contain;
 }
 
 .hero-menu {
@@ -660,11 +675,15 @@ img {
   place-items: center;
   width: 2rem;
   aspect-ratio: 1;
-  color: var(--ink);
-  background: var(--orange);
-  border-radius: 50%;
-  font-size: 0.65rem;
-  font-weight: 1000;
+  position: relative;
+}
+
+.archive-nav-mark img {
+  position: absolute;
+  width: 3.5rem;
+  height: 3rem;
+  max-width: none;
+  object-fit: contain;
 }
 
 .archive-hero {
@@ -1142,11 +1161,17 @@ img {
 
 @media (max-width: 860px) {
   .hero-nav {
-    grid-template-columns: 1fr auto;
+    gap: 0.35rem;
   }
 
-  .hero-clock {
-    display: none;
+  .hero-logo {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .hero-logo img {
+    width: 3.15rem;
+    height: 2.73rem;
   }
 
   .hero-stage {
