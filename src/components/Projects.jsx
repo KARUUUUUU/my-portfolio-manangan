@@ -18,10 +18,10 @@ function Projects() {
     },
     {
       id: '03',
-      title: 'Automated POS Testing',
-      description: 'Web automation scripts for a Point of Sale system using Selenium.',
-      tags: ['JavaScript', 'Selenium', 'QA'],
-      link: 'https://github.com/KARUUUUUU/Cafe_Baruda_Copy',
+      title: 'Petshoppe',
+      description: 'A fullstack e-commerce website for a pet shop, developed by Hivemind, the same team behind Hydro-Scout.',
+      tags: ['Fullstack', 'E-commerce', 'Hivemind'],
+      link: 'https://petshoppe-gamma.vercel.app/',
     },
     {
       id: '04',
