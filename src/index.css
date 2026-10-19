@@ -132,14 +132,22 @@ img {
 }
 
 .hero-logo img {
+  mask-image: url('/visor-mask.svg');
+  mask-mode: luminance;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+.hero-logo img {
   display: block;
   max-width: none;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 5rem;
-  height: 3.75rem;
+  width: 3.25rem;
+  height: 2.4375rem;
   object-fit: contain;
 }
 
@@ -297,6 +305,12 @@ img {
   align-items: center;
   gap: 0.45rem;
   flex-wrap: wrap;
+}
+
+.hero-socials img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
 }
 
 .hero-socials a {
@@ -591,6 +605,9 @@ img {
 }
 
 .contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   font-size: 1rem;
   font-weight: 1000;
   text-transform: uppercase;
@@ -598,6 +615,12 @@ img {
 
 .contact-links a:hover {
   color: var(--paper);
+}
+
+.contact-links img {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
 }
 
 .copyright {
@@ -680,8 +703,8 @@ img {
 
 .archive-nav-mark img {
   position: absolute;
-  width: 3.5rem;
-  height: 3rem;
+  width: 2.8rem;
+  height: 2.4rem;
   max-width: none;
   object-fit: contain;
 }
@@ -1170,8 +1193,8 @@ img {
   }
 
   .hero-logo img {
-    width: 3.15rem;
-    height: 2.73rem;
+    width: 2.1rem;
+    height: 1.82rem;
   }
 
   .hero-stage {
@@ -1420,4 +1443,120 @@ img {
   .archive-card > a svg {
     transition: none;
   }
+}
+
+.navigation-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 8, 8, 0.96);
+  color: var(--paper);
+  pointer-events: none;
+  animation: loader-appear 180ms ease-out both, loader-reveal 350ms ease 4.65s forwards;
+}
+.loader-scene { width: min(20rem, 80vw); overflow: visible; }
+.navigation-loader p { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .18em; animation: loader-reveal 300ms ease 3.2s forwards; }
+.loader-helmet-exit { transform-origin: 200px 200px; animation: helmet-depart 700ms cubic-bezier(.55, 0, .8, .4) 3.2s forwards; }
+.loader-rocket-exit { animation: rocket-depart 750ms cubic-bezier(.5, 0, 1, .5) 3.9s forwards; }
+.loader-rocket-orbit { transform-origin: 200px 200px; animation: rocket-orbit 1.3s linear 3 forwards; }
+.loader-flame { transform-box: fill-box; transform-origin: center top; animation: rocket-flame 290ms linear infinite; }
+.loader-flame path { transform-box: fill-box; transform-origin: center top; animation: flame-tongue 170ms ease-in-out infinite alternate; }
+.loader-flame path:nth-child(2) { animation-duration: 230ms; animation-delay: -90ms; }
+.loader-flame path:nth-child(3) { animation-duration: 130ms; animation-delay: -60ms; }
+@keyframes loader-appear { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rocket-orbit { to { transform: rotate(360deg); } }
+@keyframes helmet-depart {
+  to { transform: rotate(-300deg) scale(.05); opacity: 0; }
+}
+@keyframes rocket-depart {
+  to { transform: translate(110vw, -15vh); opacity: 0; }
+}
+@keyframes loader-reveal { to { opacity: 0; } }
+@keyframes rocket-flame {
+  0%, 100% { transform: skewX(-4deg) scale(1, 1); opacity: .95; }
+  25% { transform: skewX(6deg) scale(.85, 1.2); opacity: .8; }
+  50% { transform: skewX(-7deg) scale(1.08, .9); opacity: 1; }
+  75% { transform: skewX(3deg) scale(.9, 1.12); opacity: .9; }
+}
+@keyframes flame-tongue {
+  from { transform: skewX(-5deg) scaleX(.85); }
+  to { transform: skewX(7deg) scale(1.1, 1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .navigation-loader, .navigation-loader p, .loader-helmet-exit, .loader-rocket-exit, .loader-visor, .loader-rocket-orbit, .loader-flame, .loader-flame path { animation: none; }
+}
+
+/* Shared interaction feedback across portfolio and archive controls. */
+:where(a[href], button) {
+  display: inline-block;
+}
+a[href], button:not(:disabled) {
+  -webkit-tap-highlight-color: rgba(255, 90, 0, .2);
+  transition: translate 180ms ease, scale 140ms ease,
+    color 180ms ease, background-color 180ms ease,
+    box-shadow 180ms ease, filter 180ms ease;
+}
+@media (hover: hover) {
+  a[href]:hover, button:not(:disabled):hover {
+    translate: 0 -2px;
+    filter: brightness(1.12);
+  }
+  .hero-socials a:hover, .hero-actions a:hover,
+  .hero-menu a:hover, .project-row > a:hover,
+  .projects-heading a:hover, .archive-nav button:hover,
+  .archive-footer button:hover {
+    box-shadow: 0 4px 0 rgba(18, 15, 13, .2);
+  }
+  .contact-links a:hover img {
+    scale: 1.1;
+    rotate: -5deg;
+  }
+}
+a[href]:active, button:not(:disabled):active {
+  translate: 0 1px;
+  scale: .96;
+  filter: brightness(.92);
+  box-shadow: none;
+}
+a[href]:focus-visible, button:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 5px var(--ink);
+}
+.contact-links img {
+  transition: scale 180ms ease, rotate 180ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  a[href], button:not(:disabled), .contact-links img {
+    transition: none;
+    translate: none;
+    scale: none;
+    rotate: none;
+  }
+  a[href]:hover, a[href]:active,
+  button:not(:disabled):hover, button:not(:disabled):active,
+  .contact-links a:hover img {
+    translate: none;
+    scale: none;
+    rotate: none;
+  }
+}
+
+.loader-catch-target { pointer-events: all; cursor: grab; }
+.navigation-loader.is-caught { pointer-events: auto; cursor: none; animation: none; opacity: 1; }
+.navigation-loader.is-caught .loader-rocket-orbit { animation: none; transform: rotate(0deg); }
+.navigation-loader.is-caught p { animation: none; opacity: 1; }
+.navigation-loader.is-caught .loader-catch-target { cursor: none; }
+
+@keyframes rocket-release {
+  from { transform: translate(var(--release-x), var(--release-y)); opacity: 1; }
+  to { transform: translate(calc(var(--release-x) + 110vw), calc(var(--release-y) - 15vh)); opacity: 0; }
+}
+.navigation-loader.is-caught.is-released { cursor: default; animation: loader-reveal 300ms ease 800ms forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .navigation-loader.is-released .loader-rocket-exit { animation: loader-reveal 200ms ease forwards !important; }
 }

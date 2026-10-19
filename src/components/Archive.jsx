@@ -57,7 +57,7 @@ function Archive() {
           <span aria-hidden="true">←</span> Back to Portfolio
         </button>
         <div className="archive-nav-mark">
-          <img src="/Kairunaughtrans.png" alt="Kairunaught" />
+          <img src="/Kairunaught.png" alt="Kairunaught" />
         </div>
         <span>Project Archive / Index</span>
       </nav>

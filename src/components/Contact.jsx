@@ -1,8 +1,8 @@
 function Contact() {
   const links = [
-    { name: 'GitHub', url: 'https://github.com/KARUUUUUU' },
-    { name: 'Instagram', url: 'https://instagram.com/kairunaught._' },
-    { name: 'Email', url: 'mailto:k.a.manangann@gmail.com' },
+    { name: 'GitHub', url: 'https://github.com/KARUUUUUU', icon: '/github-logo.png' },
+    { name: 'Instagram', url: 'https://instagram.com/kairunaught._', icon: '/instagram.png' },
+    { name: 'Email', url: 'mailto:k.a.manangann@gmail.com', icon: '/mail.png' },
   ];
 
   return (
@@ -19,7 +19,8 @@ function Contact() {
 
         <div className="contact-links">
           {links.map((link) => (
-            <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer">
+            <a key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer">
+              <img src={link.icon} alt="" />
               {link.name}
             </a>
           ))}

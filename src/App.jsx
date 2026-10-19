@@ -5,6 +5,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Archive from './components/Archive';
+import NavigationLoader from './components/NavigationLoader';
 import './App.css';
 import './index.css';
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <NavigationLoader />
       <div className="min-h-screen antialiased">
         <Routes>
           {/* Main Portfolio Route */}

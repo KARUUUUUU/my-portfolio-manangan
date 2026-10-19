@@ -4,16 +4,16 @@ function Hero() {
   const services = ['Frontend Development', 'Automated Testing', 'UI/UX Design'];
   const techStack = ['HTML5', 'CSS', 'Javascript', 'Node.js', 'React', 'Git', 'Github'];
   const socials = [
-    { label: 'GH', href: 'https://github.com/KARUUUUUU' },
-    { label: 'IG', href: 'https://instagram.com/kairunaught._' },
-    { label: 'IN', href: 'https://www.linkedin.com/' },
+    { label: 'GitHub', href: 'https://github.com/KARUUUUUU', icon: '/github-logo.png' },
+    { label: 'Instagram', href: 'https://instagram.com/kairunaught._', icon: '/instagram.png' },
+    { label: 'Email', href: 'mailto:k.a.manangann@gmail.com', icon: '/mail.png' },
   ];
 
   return (
     <section id="home" className="portfolio-hero">
       <nav className="hero-nav" aria-label="Primary navigation">
         <div className="hero-logo">
-          <img src="/Kairunaughtrans.png" alt="Kairunaught" />
+          <img src="/Kairunaught.png" alt="Kairunaught" />
         </div>
 
         <div>
@@ -59,8 +59,8 @@ function Hero() {
       <div className="hero-bottom">
         <div className="hero-socials" aria-label="Social links">
           {socials.map((social) => (
-            <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer">
-              {social.label}
+            <a key={social.label} href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer">
+              <img src={social.icon} alt="" />
             </a>
           ))}
         </div>
