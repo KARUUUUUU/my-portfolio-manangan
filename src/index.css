@@ -1560,3 +1560,10 @@ a[href]:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .navigation-loader.is-released .loader-rocket-exit { animation: loader-reveal 200ms ease forwards !important; }
 }
+
+/* Keep tablet dragging attached to the rocket instead of scrolling the page. */
+.loader-catch-target { touch-action: none; }
+.navigation-loader.is-caught { touch-action: none; user-select: none; -webkit-user-select: none; }
+@media (pointer: coarse) {
+  .loader-catch-target rect { x: -30px; y: -32px; width: 60px; height: 100px; }
+}

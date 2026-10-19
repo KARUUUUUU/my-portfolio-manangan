@@ -16,6 +16,9 @@ export default function NavigationLoader() {
   const scene = useRef(null);
   const departureTime = useRef(0);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const touchPointer = useRef(null);
+  const usedTouch = useRef(false);
+  const [touchControls, setTouchControls] = useState(false);
 
   useEffect(() => {
     let finish;
@@ -25,6 +28,9 @@ export default function NavigationLoader() {
       clearTimeout(switchPage);
       setCycle((value) => value + 1);
       isCaught.current = false;
+      touchPointer.current = null;
+      usedTouch.current = false;
+      setTouchControls(false);
       setCaught(false);
       setReleased(false);
       releasing.current = false;
@@ -64,6 +70,7 @@ export default function NavigationLoader() {
 
   const steer = (event) => {
     if (!isCaught.current || releasing.current || !scene.current) return;
+    if (touchPointer.current !== null && event.pointerId !== touchPointer.current) return;
     const bounds = scene.current.getBoundingClientRect();
     setPosition({
       x: (event.clientX - bounds.left) * 400 / bounds.width - 200,
@@ -78,15 +85,38 @@ export default function NavigationLoader() {
     steer(event);
   };
 
+  const releaseRocket = () => {
+    if (!isCaught.current || releasing.current) return;
+    releasing.current = true;
+    setReleased(true);
+    releaseTimer.current = setTimeout(() => setVisible(false), 1100);
+  };
+
+  const grabRocket = (event) => {
+    if (!event.isPrimary || performance.now() < departureTime.current || isCaught.current) return;
+    if (event.pointerType !== 'mouse') {
+      event.preventDefault();
+      touchPointer.current = event.pointerId;
+      usedTouch.current = true;
+      setTouchControls(true);
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
+    catchRocket(event);
+  };
+
+  const endDrag = (event) => {
+    if (event.pointerId !== touchPointer.current) return;
+    releaseRocket();
+    touchPointer.current = null;
+  };
+
   return (
     <div key={cycle} className={`navigation-loader${caught ? ' is-caught' : ''}${released ? ' is-released' : ''}`} role="status" aria-live="polite"
       onPointerMove={steer}
-      onClick={() => {
-        if (!isCaught.current || releasing.current) return;
-        releasing.current = true;
-        setReleased(true);
-        releaseTimer.current = setTimeout(() => setVisible(false), 1100);
-      }}>
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onLostPointerCapture={endDrag}
+      onClick={() => { if (!usedTouch.current) releaseRocket(); }}>
       <svg ref={scene} className="loader-scene" viewBox="0 0 400 400" aria-hidden="true">
         <defs>
           <path id="loader-visor-shape" d="M530 603 C698 505 878 464 1049 455 C1146 569 1171 718 1117 868 C1074 978 1013 1050 941 1096 C751 1014 608 818 530 603Z" />
@@ -120,7 +150,7 @@ export default function NavigationLoader() {
           '--release-x': `${position.x}px`, '--release-y': `${position.y}px`,
         } : undefined}>
         <g className="loader-rocket-orbit">
-          <g className="loader-catch-target" onPointerEnter={catchRocket} onPointerDown={catchRocket} transform="translate(200 41) rotate(90) scale(1.2)">
+          <g className="loader-catch-target" onPointerEnter={(event) => { if (event.pointerType === 'mouse') catchRocket(event); }} onPointerDown={grabRocket} transform="translate(200 41) rotate(90) scale(1.2)">
             <rect x="-22" y="-26" width="44" height="90" fill="transparent" />
             <g className="loader-flame">
               <path d="M-7 12C-14 28-5 36-8 48L0 62 7 43C4 33 15 23 7 12Z" fill="#ff5a00" filter="url(#loader-fire-glow)" />
@@ -134,7 +164,7 @@ export default function NavigationLoader() {
         </g>
         </g>
       </svg>
-      <p>{released ? 'Off to explore…' : caught ? 'Move to steer · Click to release' : 'Preparing for launch…'}</p>
+      <p>{released ? 'Off to explore…' : caught ? (touchControls ? 'Drag to steer · Lift to release' : 'Move to steer · Click to release') : 'Preparing for launch…'}</p>
     </div>
   );
 }
