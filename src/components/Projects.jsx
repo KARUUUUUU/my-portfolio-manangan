@@ -1,3 +1,4 @@
+import ButtonOrbit from './ButtonOrbit';
 function Projects() {
   const myProjects = [
     {
@@ -41,7 +42,7 @@ function Projects() {
 
       <div className="projects-heading">
         <h2>Projects with development, testing, and design in the same frame.</h2>
-        <a href="/archive">More Projects</a>
+        <a className="has-button-orbit" href="/archive"><ButtonOrbit />More Projects</a>
       </div>
 
       <div className="project-list">
@@ -71,7 +72,7 @@ function Projects() {
                 <span key={tag}>{tag}</span>
               ))}
             </div>
-            <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title}`}>
+            <a className="has-button-orbit" href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title}`}><ButtonOrbit />
               View Project
             </a>
           </article>

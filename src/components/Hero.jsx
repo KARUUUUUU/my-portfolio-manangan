@@ -1,7 +1,8 @@
+import ButtonOrbit from './ButtonOrbit';
 import ProfileImg from '../assets/profile_image.png';
+import RocketLines from './RocketLines';
 
 function Hero() {
-  const services = ['Frontend Development', 'Automated Testing', 'UI/UX Design'];
   const techStack = ['HTML5', 'CSS', 'Javascript', 'Node.js', 'React', 'Git', 'Github'];
   const socials = [
     { label: 'GitHub', href: 'https://github.com/KARUUUUUU', icon: '/github-logo.png' },
@@ -29,37 +30,41 @@ function Hero() {
       </nav>
 
       <div className="hero-stage">
+        <h1 className="hero-poster-title" aria-label="Karl Andrei Manangan">
+          <span>Karl</span><span>Andrei</span><span>Manangan</span>
+        </h1>
         <div className="hero-copy">
-          <p className="hero-kicker">Hello, I'm</p>
-          <h1 aria-label="Karl Andrei Manangan">
-            <span>Karl</span>
-            <span>Andrei</span>
-            <span>Manangan</span>
-          </h1>
+          <p className="hero-kicker"><span>Design. Develop. Discover.</span></p>
+          <RocketLines />
           <p className="hero-summary">
             5th Year Computer Science Student bringing interfaces, testing, and product ideas to life with React,
             Selenium, and UI/UX design.
           </p>
+
+
         </div>
 
         <div className="hero-portrait" aria-hidden="true">
+          <span className="hero-orbit">
+            <span className="hero-orbit-planet">
+              <span className="hero-moon-orbit hero-moon-orbit--inner"><span /></span>
+              <span className="hero-moon-orbit hero-moon-orbit--outer"><span /></span>
+            </span>
+          </span>
+          <span className="hero-orbit hero-orbit--inner">
+            <span className="hero-orbit-planet hero-orbit-planet--inner">
+              <span className="hero-moon-orbit hero-moon-orbit--single"><span /></span>
+            </span>
+          </span>
+          <span className="hero-photo-label">FRONT-END DEVELOPER / UI/UX DESIGNER</span>
           <img src={ProfileImg} alt="" />
-        </div>
 
-        <aside className="hero-services" aria-label="Services">
-          <span>Services</span>
-          {services.map((service) => (
-            <a key={service} href="#about">
-              {service}
-            </a>
-          ))}
-        </aside>
-      </div>
+        </div>
 
       <div className="hero-bottom">
         <div className="hero-socials" aria-label="Social links">
           {socials.map((social) => (
-            <a key={social.label} href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer">
+            <a className="has-button-orbit" key={social.label} href={social.href} aria-label={social.label} target="_blank" rel="noopener noreferrer"><ButtonOrbit />
               <img src={social.icon} alt="" />
             </a>
           ))}
@@ -72,13 +77,14 @@ function Hero() {
         </div>
 
         <div className="hero-actions">
-          <a href="/Manangan_Certifications.pdf" target="_blank" rel="noopener noreferrer">
+          <a className="has-button-orbit" href="/Manangan_Certifications.pdf" target="_blank" rel="noopener noreferrer"><ButtonOrbit />
             Certificates
           </a>
-          <a href="/Manangan_Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a className="has-button-orbit" href="/Manangan_Resume.pdf" target="_blank" rel="noopener noreferrer"><ButtonOrbit />
             My resume
           </a>
         </div>
+      </div>
       </div>
     </section>
   );

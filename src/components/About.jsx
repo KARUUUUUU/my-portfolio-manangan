@@ -9,7 +9,6 @@ function About() {
     <section id="about" className="editorial-section about-section">
       <div className="section-label">
         <span>About</span>
-        <strong>Karl Andrei M. Manangan</strong>
       </div>
 
       <div className="about-grid">

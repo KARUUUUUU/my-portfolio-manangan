@@ -1,3 +1,4 @@
+import ButtonOrbit from './ButtonOrbit';
 import { useNavigate } from 'react-router-dom';
 
 const ArrowUpRight = () => (
@@ -132,7 +133,7 @@ function Archive() {
                 {category.tags.map((tag) => <span key={tag}>{tag}</span>)}
               </div>
 
-              <a href={category.link} target="_blank" rel="noreferrer">
+              <a className="has-button-orbit" href={category.link} target="_blank" rel="noreferrer"><ButtonOrbit />
                 <span>{category.cta}</span>
                 <ArrowUpRight />
               </a>
@@ -143,7 +144,7 @@ function Archive() {
 
       <footer className="archive-footer">
         <span>End of index</span>
-        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Back to top ↑</button>
+        <button className="has-button-orbit" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><ButtonOrbit />Back to top ↑</button>
       </footer>
     </main>
   );

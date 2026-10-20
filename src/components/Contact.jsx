@@ -1,3 +1,5 @@
+import ButtonOrbit from './ButtonOrbit';
+import ConnectOrbit from './ConnectOrbit';
 function Contact() {
   const links = [
     { name: 'GitHub', url: 'https://github.com/KARUUUUUU', icon: '/github-logo.png' },
@@ -8,7 +10,7 @@ function Contact() {
   return (
     <footer id="contacts" className="contact-footer">
       <div className="contact-marquee" aria-hidden="true">
-        Connect
+        <ConnectOrbit />
       </div>
 
       <div className="contact-content">
@@ -19,7 +21,7 @@ function Contact() {
 
         <div className="contact-links">
           {links.map((link) => (
-            <a key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer">
+            <a className="has-button-orbit" key={link.name} href={link.url} aria-label={link.name} target="_blank" rel="noopener noreferrer"><ButtonOrbit />
               <img src={link.icon} alt="" />
               {link.name}
             </a>
